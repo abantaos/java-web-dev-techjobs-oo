@@ -1,5 +1,7 @@
 package org.launchcode.techjobs_oo;
 
+import org.w3c.dom.ls.LSOutput;
+
 import javax.swing.text.Position;
 import java.util.Objects;
 
@@ -30,6 +32,22 @@ public class Job {
         this.location = location;
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
+    }
+
+    public static String toString(Job tester) {
+        if (tester.getName().equals("")) {
+            return "\nID: " + tester.getId() + "\nName: Data not available\nEmployer: " + tester.getEmployer() + "\nLocation: " + tester.getLocation() + "\nPosition Type: " + tester.getPositionType() + "\nCore Competency: " + tester.getCoreCompetency() + "\n";
+        } else if (tester.getEmployer().toString().equals("")) {
+            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: Data not available\nLocation: " + tester.getLocation() + "\nPosition Type: " + tester.getPositionType() + "\nCore Competency: " + tester.getCoreCompetency() + "\n";
+        } else if (tester.getLocation().toString().equals("")) {
+            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: " + tester.getEmployer() + "\nLocation: Data not available\nPosition Type: " + tester.getPositionType() + "\nCore Competency: " + tester.getCoreCompetency() + "\n";
+        } else if (tester.getPositionType().toString().equals("")) {
+            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: " + tester.getEmployer() + "\nLocation: " + tester.getLocation() + "\nPosition Type: Data not available\nCore Competency: " + tester.getCoreCompetency() + "\n";
+        } else if (tester.getCoreCompetency().toString().equals("")) {
+            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: " + tester.getEmployer() + "\nLocation: " + tester.getLocation() + "\nPosition Type: " + tester.getPositionType() + "\nCore Competency: Data not available\n";
+        } else {
+            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: " + tester.getEmployer() + "\nLocation: " + tester.getLocation() + "\nPosition Type: " + tester.getPositionType() + "\nCore Competency: " + tester.getCoreCompetency() + "\n";
+        }
     }
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
