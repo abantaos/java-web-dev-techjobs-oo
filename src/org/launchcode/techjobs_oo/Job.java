@@ -34,21 +34,36 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public static String toString(Job tester) {
-        if (tester.getName().equals("")) {
-            return "\nID: " + tester.getId() + "\nName: Data not available\nEmployer: " + tester.getEmployer() + "\nLocation: " + tester.getLocation() + "\nPosition Type: " + tester.getPositionType() + "\nCore Competency: " + tester.getCoreCompetency() + "\n";
-        } else if (tester.getEmployer().toString().equals("")) {
-            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: Data not available\nLocation: " + tester.getLocation() + "\nPosition Type: " + tester.getPositionType() + "\nCore Competency: " + tester.getCoreCompetency() + "\n";
-        } else if (tester.getLocation().toString().equals("")) {
-            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: " + tester.getEmployer() + "\nLocation: Data not available\nPosition Type: " + tester.getPositionType() + "\nCore Competency: " + tester.getCoreCompetency() + "\n";
-        } else if (tester.getPositionType().toString().equals("")) {
-            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: " + tester.getEmployer() + "\nLocation: " + tester.getLocation() + "\nPosition Type: Data not available\nCore Competency: " + tester.getCoreCompetency() + "\n";
-        } else if (tester.getCoreCompetency().toString().equals("")) {
-            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: " + tester.getEmployer() + "\nLocation: " + tester.getLocation() + "\nPosition Type: " + tester.getPositionType() + "\nCore Competency: Data not available\n";
-        } else {
-            return "\nID: " + tester.getId() + "\nName: " + tester.getName() + "\nEmployer: " + tester.getEmployer() + "\nLocation: " + tester.getLocation() + "\nPosition Type: " + tester.getPositionType() + "\nCore Competency: " + tester.getCoreCompetency() + "\n";
+    public String toString() {
+
+
+        if(name.equals("")) {
+            name = "Data not available";
         }
+        if (employer.toString().equals("")) {
+            employer.setValue("Data not available");
+        }
+        if (location.toString().equals("")) {
+            location.setValue("Data not available");
+        }
+        if (positionType.toString().equals("")) {
+            positionType.setValue("Data not available");
+        }
+        if (coreCompetency.toString().equals("")) {
+            coreCompetency.setValue("Data not available");
+        }
+
+        String list = "\nID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency + "\n";
+
+            return list;
+
     }
+
 
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.

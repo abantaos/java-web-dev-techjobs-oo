@@ -30,11 +30,11 @@ public class JobTest {
         jobTesterMissingLocation = new Job("Product tester", new Employer("ACME"), new Location(""), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         jobTesterMissingPositionType = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType(""), new CoreCompetency("Persistence"));
         jobTesterMissingCoreCompetency = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency(""));
-        }
+    }
 
     @Test
     public void testSettingJobId() {
-    assertFalse(jobOne.equals(jobTwo));
+        assertFalse(jobOne.equals(jobTwo));
     }
 
     @Test
@@ -57,24 +57,32 @@ public class JobTest {
 
     @Test
     public void testBlankLinesBeforeAndAfter() {
-        assertTrue(Job.toString(jobTester).startsWith("\n"));
-        assertTrue(Job.toString(jobTester).endsWith("\n"));
+        assertTrue(jobTester.toString().startsWith("\n"));
+        assertTrue(jobTester.toString().endsWith("\n"));
     }
+
 
     @Test
     public void testEachFieldOnOwnLine() {
-        assertTrue(Job.toString(jobTester).contains("ID: " + jobTester.getId() + "\nName: Product tester\nEmployer: ACME\nLocation: Desert\nPosition Type: Quality control\nCore Competency: Persistence"));
-
+        assertTrue(jobTester.toString().contains(
+                "ID: " + jobTester.getId() +
+                        "\nName: Product tester" +
+                        "\nEmployer: ACME" +
+                        "\nLocation: Desert" +
+                        "\nPosition Type: Quality control" +
+                        "\nCore Competency: Persistence"));
     }
+
 
     @Test
     public void testIfFieldEmptyDataNotAvailable() {
-        assertTrue(Job.toString(jobTesterMissingName).contains("Name: Data not available"));
-        assertTrue(Job.toString(jobTesterMissingEmployer).contains("Employer: Data not available"));
-        assertTrue(Job.toString(jobTesterMissingLocation).contains("Location: Data not available"));
-        assertTrue(Job.toString(jobTesterMissingPositionType).contains("Position Type: Data not available"));
-        assertTrue(Job.toString(jobTesterMissingCoreCompetency).contains("Core Competency: Data not available"));
+        assertTrue(jobTesterMissingName.toString().contains("Name: Data not available"));
+        assertTrue(jobTesterMissingEmployer.toString().contains("Employer: Data not available"));
+        assertTrue(jobTesterMissingLocation.toString().contains("Location: Data not available"));
+        assertTrue(jobTesterMissingPositionType.toString().contains("Position Type: Data not available"));
+        assertTrue(jobTesterMissingCoreCompetency.toString().contains("Core Competency: Data not available"));
     }
 
-
 }
+
+
